@@ -8,8 +8,9 @@ A basic console is created using the Cmd Python module, to manage the objects of
 ## Execution
 The console can work in both interactive and non-onteractive mode
 
+
 ### Interactive Mode:
-'''
+```
 $ ./console.py
 (hbnb) help
 
@@ -21,9 +22,9 @@ EOF  help  quit
 (hbnb) 
 (hbnb) quit
 $
-'''
+```
 ### Non-Interactive Mode:
-''' 
+```
 $ echo "help" | ./console.py
 (hbnb)
 
@@ -43,7 +44,7 @@ Documented commands (type help <topic>):
 EOF  help  quit
 (hbnb) 
 $
-'''
+```
 ## Authors
 - [Emmanuel Appiah](https://github.com/eldray)
 - [Adewale Liadi](https://github.com/jesusenerio)
