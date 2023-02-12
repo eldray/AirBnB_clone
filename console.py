@@ -74,7 +74,7 @@ class HBNBCommand(cmd.Cmd):
             return
         try:
             if args[1]:
-                class_id = f"{args[0]}.{args[1]}"
+                class_id = f("{args[0]}.{args[1]}")
                 if class_id not in storage.all().keys():
                     print("** no instance found **")
                 else:
@@ -95,7 +95,7 @@ class HBNBCommand(cmd.Cmd):
             return
         try:
             if args[1]:
-                class_id = f"{args[0]}.{args[1]}"
+                class_id = f("{args[0]}.{args[1]}")
                 if class_id not in storage.all().keys():
                     print("** no instance found **")
                 else:
@@ -138,7 +138,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 1:
             print("** instance id missing **")
             return
-        class_id = f"{args[0]}.{args[1]}"
+        class_id = f("{args[0]}.{args[1]}")
         if class_id in storage.all().keys():
             if len(args) == 2:
                 print("** attribute name missing **")
