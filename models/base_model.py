@@ -52,5 +52,3 @@ class BaseModel:
                 new_dict[key] = value.isoformat()
             else:
                 new_dict[key] = value
-
-        return 
