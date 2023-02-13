@@ -13,6 +13,7 @@ Unittest classes:
 import os
 import sys
 import unittest
+from models import storage
 from models.engine.file_storage import FileStorage
 from console import HBNBCommand
 from io import StringIO
@@ -159,7 +160,7 @@ class TestHBNBCommand_create(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd("BaseModel.create()"))
             self.assertEqual(correct, output.getvalue().strip())
 
-def test_create_object(self):
+    def test_create_object(self):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create BaseModel"))
             self.assertLess(0, len(output.getvalue().strip()))
@@ -169,4 +170,29 @@ def test_create_object(self):
             self.assertFalse(HBNBCommand().onecmd("create User"))
             self.assertLess(0, len(output.getvalue().strip()))
             testKey = "User.{}".format(output.getvalue().strip())
+            self.assertIn(testKey, storage.all().keys())
+        with patch("sys.stdout", new=StringIO()) as output:
+            self.assertFalse(HBNBCommand().onecmd("create State"))
+            self.assertLess(0, len(output.getvalue().strip()))
+            testKey = "State.{}".format(output.getvalue().strip())
+            self.assertIn(testKey, storage.all().keys())
+        with patch("sys.stdout", new=StringIO()) as output:
+            self.assertFalse(HBNBCommand().onecmd("create City"))
+            self.assertLess(0, len(output.getvalue().strip()))
+            testKey = "City.{}".format(output.getvalue().strip())
+            self.assertIn(testKey, storage.all().keys())
+        with patch("sys.stdout", new=StringIO()) as output:
+            self.assertFalse(HBNBCommand().onecmd("create Amenity"))
+            self.assertLess(0, len(output.getvalue().strip()))
+            testKey = "Amenity.{}".format(output.getvalue().strip())
+            self.assertIn(testKey, storage.all().keys())
+        with patch("sys.stdout", new=StringIO()) as output:
+            self.assertFalse(HBNBCommand().onecmd("create Place"))
+            self.assertLess(0, len(output.getvalue().strip()))
+            testKey = "Place.{}".format(output.getvalue().strip())
+            self.assertIn(testKey, storage.all().keys())
+        with patch("sys.stdout", new=StringIO()) as output:
+            self.assertFalse(HBNBCommand().onecmd("create Review"))
+            self.assertLess(0, len(output.getvalue().strip()))
+            testKey = "Review.{}".format(output.getvalue().strip())
             self.assertIn(testKey, storage.all().keys())
